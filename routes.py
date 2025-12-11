@@ -6,6 +6,9 @@ app = Flask(__name__)
 
 API_BASE = "/api/pessoa"
 
+from flask_cors import CORS
+CORS(app, origins=['http://localhost:3000'])
+
 # CREATE
 @app.route(API_BASE, methods=["POST"])
 def criar_pessoa():
