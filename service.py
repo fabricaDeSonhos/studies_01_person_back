@@ -33,7 +33,7 @@ def delete(pessoa_id):
 def update(pessoa_id, nome=None, email=None, telefone=None):
     pessoa = Pessoa.get(id=pessoa_id)
     if not pessoa:
-        return {"result": "ok", "details": 0}
+        return {"result": "error", "details": f"Pessoa not found (id={pessoa_id})"}
 
     if nome is not None:
         pessoa.nome = nome
@@ -42,7 +42,7 @@ def update(pessoa_id, nome=None, email=None, telefone=None):
     if telefone is not None:
         pessoa.telefone = telefone
 
-    return {"result": "ok", "details": 1}
+    return {"result": "ok", "details": "ok"}
 
 
 # -----------------------------
