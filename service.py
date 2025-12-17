@@ -8,6 +8,8 @@ from model_person import Pessoa  # importa a Entity do arquivo models.py
 @db_session
 def insert(nome, email, telefone):
     pessoa = Pessoa(nome=nome, email=email, telefone=telefone)
+    # ensure the object is stored and has an ID
+    pessoa.flush()
     return {"result": "ok", "details": pessoa.id}
 
 
