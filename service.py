@@ -72,7 +72,7 @@ def retrieveAll():
 def retrieveById(pessoa_id):
     p = Pessoa.get(id=pessoa_id)
     if not p:
-        return {"result": "not_found", "details": None}
+        return {"result": "error", "details": f"Object not found, id={pessoa_id} "}
 
     pessoa = {
         "id": p.id,
